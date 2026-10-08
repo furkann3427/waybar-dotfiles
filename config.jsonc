@@ -1,0 +1,92 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+
+    "modules-left": [
+        "custom/arrow",
+        "custom/ws1",
+        "custom/ws2",
+        "custom/ws3",
+        "custom/ws4",
+        "custom/ws5"
+    ],
+
+    "modules-center": [],
+
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock",
+        "custom/power"
+    ],
+
+    "custom/arrow": {
+        "format": "▲"
+    },
+
+    "custom/ws1": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 1",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workspace-click.sh 1"
+    },
+    "custom/ws2": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 2",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workspace-click.sh 2"
+    },
+    "custom/ws3": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 3",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workspace-click.sh 3"
+    },
+    "custom/ws4": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 4",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workspace-click.sh 4"
+    },
+    "custom/ws5": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 5",
+        "return-type": "json",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workspace-click.sh 5"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": ["", "", ""],
+        "on-click": "~/.config/waybar/scripts/kdepopup.sh org.kde.plasma.volume",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰤮 Yok",
+        "on-click": "~/.config/waybar/scripts/kdepopup.sh org.kde.plasma.networkmanagement"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "~/.config/waybar/scripts/kdepopup.sh org.kde.plasma.battery"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "on-click": "~/.config/waybar/scripts/kdepopup.sh org.kde.plasma.digitalclock"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "kdialog --yesno 'Kapatılsın mı?' && systemctl poweroff"
+    }
+}

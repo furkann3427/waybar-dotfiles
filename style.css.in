@@ -1,0 +1,49 @@
+@import url("file://__HOME__/.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: alpha(@background, 0.6);
+    color: @foreground;
+    border: none;
+}
+
+#custom-arrow {
+    color: @color4;
+    padding: 0 12px;
+}
+
+#custom-ws1,
+#custom-ws2,
+#custom-ws3,
+#custom-ws4,
+#custom-ws5 {
+    padding: 0 8px;
+    color: @foreground;
+}
+
+#custom-ws1.active,
+#custom-ws2.active,
+#custom-ws3.active,
+#custom-ws4.active,
+#custom-ws5.active {
+    background: alpha(@color4, 0.25);
+    color: @color4;
+}
+
+#pulseaudio,
+#network,
+#battery,
+#clock,
+#custom-power {
+    padding: 0 10px;
+    color: @foreground;
+}
+
+#custom-power {
+    padding-right: 14px;
+    color: @color4;
+}
